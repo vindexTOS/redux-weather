@@ -25,7 +25,7 @@ const SearchArea = () => {
         type="text"
         onChange={(e) => dispatch(lookUp(String(e.target.value)))}
       />
-      <button onClick={() => dispatch(callWeather(city))}>CALL API</button>
+      {/* <button onClick={() => dispatch(callWeather(city))}>CALL API</button> */}
     </section>
   )
 }
