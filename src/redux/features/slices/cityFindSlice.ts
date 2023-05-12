@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  city: '',
+  city: 'London',
 }
 
 const cityFindSlice = createSlice({

@@ -14,9 +14,12 @@ const SearchArea = () => {
     input: `outline-none bg-transparent w-[95%] text-gray-300`,
   }
   useEffect(() => {
+    dispatch(callWeather(city))
+    console.log(data)
+  }, [])
+  useEffect(() => {
     console.log(data)
   }, [city])
-
   return (
     <section className={style.section}>
       <input
@@ -25,7 +28,7 @@ const SearchArea = () => {
         type="text"
         onChange={(e) => dispatch(lookUp(String(e.target.value)))}
       />
-      {/* <button onClick={() => dispatch(callWeather(city))}>CALL API</button> */}
+      <button onClick={() => dispatch(callWeather(city))}>CALL API</button>
     </section>
   )
 }
