@@ -12,9 +12,11 @@ const NavLinkComponent: FC<NavLinkProps> = ({ data }) => {
   const style = {
     mainDiv: `flex flex-col items-center justify-center gap-2 cursor-pointer   `,
     icons: `text-[1.2rem]  ${
-      location.pathname === id ? ' text-blue-400' : 'text-gray-400'
+      location.pathname === `/${id}` ? ' text-blue-400' : 'text-gray-400'
     }`,
-    p: ` ${location.pathname === id ? ' text-blue-300' : 'text-gray-400'}`,
+    p: ` ${
+      location.pathname === `/${id}` ? ' text-blue-300' : 'text-gray-400'
+    }`,
   }
   return (
     <div onClick={() => navigate(id)} className={style.mainDiv}>

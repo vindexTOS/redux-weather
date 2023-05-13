@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import MainPage from './components/MainPage'
+import MainPage from './pages/MainPage'
 import DisplayMain from './components/display/DisplayMain'
+import Cities from './pages/Cities'
+import MapMain from './pages/MapMain'
+import Settings from './pages/Settings'
 import { Routes, Route } from 'react-router-dom'
 function App() {
   const style = {
@@ -11,6 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}>
           <Route path="/" element={<DisplayMain />} />
+          <Route path="city" element={<Cities />} />
+          <Route path="map" element={<MapMain />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </main>
