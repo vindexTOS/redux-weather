@@ -32,6 +32,7 @@ const citySlice = createSlice({
 
     HanndleCityDropDown: (state) => {
       state.cityDropDown = !state.cityDropDown
+      state.filteredCitys = state.citys
     },
   },
 })
