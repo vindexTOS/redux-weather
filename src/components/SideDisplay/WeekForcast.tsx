@@ -25,13 +25,13 @@ const WeekForcast = () => {
           const timestamp = val.dt
           const date = new Date(timestamp * 1000)
           const daysOfWeek = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
+            'Sun ',
+            'Mon ',
+            'Tues ',
+            'Wednes ',
+            'Thurs ',
+            'Fri ',
+            'Satur ',
           ]
           const dayOfWeekName = daysOfWeek[date.getDay()]
           const main = val.weather[0].main

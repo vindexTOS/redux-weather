@@ -23,7 +23,7 @@ const SideNav = () => {
   }
 
   const navIconList: NavIconsList[] = [
-    { Icon: TiWeatherPartlySunny, title: 'Weather', id: 'weather' },
+    { Icon: TiWeatherPartlySunny, title: 'Weather', id: '/' },
     { Icon: AiOutlineBars, title: 'Cities', id: 'city' },
     { Icon: FiMapPin, title: 'Map', id: 'map' },
     { Icon: RiListSettingsFill, title: 'Settings', id: 'settings' },
