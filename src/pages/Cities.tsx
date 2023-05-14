@@ -1,5 +1,6 @@
-import React, { Reducer } from 'react'
-
+import React, { Reducer, useEffect } from 'react'
+import { countryAPI } from '../redux/features/countryThunk'
+import { getCountry } from '../redux/features/slices/countryFetch'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -7,6 +8,7 @@ import {
   stateInterFace,
   HanndleCityDropDown,
 } from '../redux/features/slices/cityJsonDataSlice'
+import { ThunkDispatch } from '@reduxjs/toolkit'
 
 const Cities = () => {
   const cityData = useSelector(
@@ -15,7 +17,13 @@ const Cities = () => {
   const dropDown = useSelector(
     (state: stateInterFace | any) => state.citySearch.cityDropDown,
   )
-  const dispatch = useDispatch()
+  const countryString = useSelector(
+    (state: string | any) => state.countryFetch.coutry,
+  )
+  const countryData = useSelector(
+    (state: any) => state.countryFetch.countryData,
+  )
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
   const style = {
     mainDiv: `absolute left-40 top-20  gap-2 flex flex-col items-center justify-center`,
@@ -23,8 +31,14 @@ const Cities = () => {
     btnWrapper: `cursor-pointer text-white text-[1.1rem]`,
   }
 
+  useEffect(() => {
+    dispatch(countryAPI(String(countryString)))
+  }, [countryString])
+
   return (
     <div className={style.mainDiv}>
+      <h1 onClick={() => console.log(countryData)}>CLICK TO SEE RESULTS</h1>
+
       <div className={style.inputDiv}>
         <input
           className="bg-transparent outline-none"
@@ -44,6 +58,7 @@ const Cities = () => {
           {cityData.map((val: any) => {
             return (
               <div
+                onClick={() => dispatch(getCountry(String(val.country)))}
                 className="hover:bg-[#0b121e] w-[100%] text-gray-300 px-10 "
                 key={val.city + val.country}
               >
